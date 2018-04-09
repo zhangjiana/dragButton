@@ -4,14 +4,21 @@
 具体参数如下：
 
 config = {
+
   container: $('.service-box'), // 页面容器
+  
   item: ['python', 'javaScript', 'PHP', 'Java'], // 种类
+  
   radius: '.5rem' // 拖拽按钮半径
 }
 使用方法：
 
 $.fn.drag.init({
+
         container: $('.service-box'),
+        
         item: ['python', 'javaScript', 'PHP', 'Java'],
+        
         radius: '.5rem'
+        
     });
