@@ -1,5 +1,10 @@
 /**
- * Created by zhangjian on 2018/4/8.
+ * 使用说明：
+ * $.fn.drag.init({
+ *     item: []， // 数组
+ *     radius: '' , // 按钮半径
+ *     container: '' // 容器
+ * })
  */
 import 'assets/common';
 (function ($) {
@@ -8,7 +13,7 @@ import 'assets/common';
             init: async function (obj) {
                 this.item = obj.item;
                 this.container = obj.container;
-                this.radius = obj.radius;
+                this.radius = obj.radius || '50px';
                 await this.createElements();
                 this.btn = $("#drag-btn")
                 this.arrLeft = [];
@@ -26,18 +31,18 @@ import 'assets/common';
                 this.container.html(`<div class="bar"></div><em class="drag-btn" id="drag-btn"></em>`)
                 this.container.css({
                     'width': '100%',
-                    'height': '1.06rem',
+                    'height': '106px',
                     'background': '#f1f1f1',
                     'position': 'relative',
-                    'padding-top': '.7rem'
+                    'padding-top': '70px'
                 })
                 $('.bar').css({
-                    'width': '2.7rem',
-                    'height': '.1rem',
+                    'width': '270px',
+                    'height': '10',
                     'border': '1px solid #f2f6fa',
                     'background': '#E6E6E6',
                     'position': 'relative',
-                    'border-radius': '.1rem'
+                    'border-radius': '10'
                 })
                 $(".drag-btn").css({
                     'width': this.radius,
@@ -45,8 +50,8 @@ import 'assets/common';
                     'border-radius': '50%',
                     'background': '#ededed',
                     'box-shadow': '0 0 1px 1px rgba(0,0,0, .1)',
-                    'bottom': '.07rem',
-                    'left': '.285rem',
+                    'bottom': '7px',
+                    'left': '28.5px',
                     'position': 'absolute',
                     'transform': 'translate3d(0,0,0)',
                     '-webkit-transform': 'translate3d(0,0,0)',
@@ -60,15 +65,15 @@ import 'assets/common';
                 let _frag = document.createDocumentFragment();
                 let _fragSpan = document.createDocumentFragment();
                 for (let i = 0; i < this.item.length; i++) {
-                    $(_frag).append(`<em style="position: absolute;top: -.07rem;border-radius: 50%;
-                        height: 0.2rem;
-                        width: 0.2rem;
+                    $(_frag).append(`<em style="position: absolute;top: -7px;border-radius: 50%;
+                        height: 20px;
+                        width: 20px;
                         background: #E6E6E6;
                         content: "";
                         border: 1px solid #f2f6fa;
                         z-index: 90;"></em>`);
                     $(_fragSpan).append(`<span style="position: absolute;text-align: center;transition: .5s;
-                    -webkit-transform: translate3d(0, -.55rem, 0);transform: translate3d(0, -.55rem, 0);" class="text${i}">${this.item[i]}</span>`)
+                    -webkit-transform: translate3d(0, -55px, 0);transform: translate3d(0, -55px, 0);" class="text${i}">${this.item[i]}</span>`)
                 }
                 $('.bar').append(_frag)
                 $('.service-box').append(_fragSpan)
@@ -131,12 +136,12 @@ import 'assets/common';
                 })
                 $('.text' + item).css({
                     'color': '#42babb',
-                    '-webkit-transform': 'translate3d(0, -.65rem, 0)',
-                    'transform': 'translate3d(0, -.65rem, 0)'
+                    '-webkit-transform': 'translate3d(0, -65px, 0)',
+                    'transform': 'translate3d(0, -65px, 0)'
                 }).siblings('span').css({
                     'color': 'inherit',
-                    '-webkit-transform': 'translate3d(0, -.55rem, 0)',
-                    'transform': 'translate3d(0, -.55rem, 0)'
+                    '-webkit-transform': 'translate3d(0, -55px, 0)',
+                    'transform': 'translate3d(0, -55px, 0)'
                 })
             },
             /* 获取目标元素的横坐标 */
